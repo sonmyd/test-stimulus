@@ -1,0 +1,27 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Tasks</h1>
+
+  <%= form_with( model: @task, ) do |form|  %>
+
+  <div>
+  <%= form.label "Name" %>
+  <%= form.text_field :name %>
+  </div>
+
+  <div>
+  <%= form.button :submit %>
+  </div>
+  <% end %>
+
+<h3> To Do </h3>
+
+<%= turbo_frame_tag "todo_list" do %>
+  <%= render @tasks   %>
+<% end %>
+
+<h3> Done </h3>
+
+<%= turbo_frame_tag "done_list" do %>
+  <%= render @done_tasks   %>
+<% end %>
